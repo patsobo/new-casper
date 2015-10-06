@@ -19,13 +19,18 @@ $(document).ready(function() {
     // Fancy animation on the project entries
     // Not sure why I can't use on function, but using mouseenter and mouseleave
     // directly seem to work, so let's not ruin a good thing
-    $(".project-entry").mouseenter(function() {
-        $(this).closest('.project-entry').find('.project-buttons').stop();
-        $(this).closest('.project-entry').find('.project-buttons').slideDown(250);
+    $(".projectList").mouseenter(function() {
+        $(".project-entry").mouseenter(function() {
+            $(this).closest('.project-entry').find('.project-buttons').stop();
+            $(this).closest('.project-entry').find('.project-buttons').slideDown(250);
+        });
     });
-    $(".project-entry").mouseleave(function() {
-        $(this).closest('.project-entry').find('.project-buttons').stop();
-        $(this).closest('.project-entry').find('.project-buttons').slideUp(250);
+
+    $(".projectList").mouseenter(function() {
+        $(".project-entry").mouseleave(function() {
+            $(this).closest('.project-entry').find('.project-buttons').stop();
+            $(this).closest('.project-entry').find('.project-buttons').slideUp(250);
+        });
     });
 
     $(".tag-projects").on('mouseenter', 'article', function() {
