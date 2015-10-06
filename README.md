@@ -1,4 +1,4 @@
-# Casper
+# New-Casper
 
 My personal theme for [Ghost](http://github.com/tryghost/ghost/), used on my website, [patsobo.com](http://www.patsobo.com).  It is not the actual theme on my server - it is the local copy that I work on when I want to add something to my theme.  I then push this copy to my server when I've finished a task.  For example, I'm currently working on a new projects page - it isn't live on my site, but it's on this theme.
 
