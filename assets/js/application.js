@@ -24,9 +24,7 @@ $(document).ready(function() {
             $(this).closest('.project-entry').find('.project-buttons').stop();
             $(this).closest('.project-entry').find('.project-buttons').slideDown(250);
         });
-    });
 
-    $(".projectList").mouseenter(function() {
         $(".project-entry").mouseleave(function() {
             $(this).closest('.project-entry').find('.project-buttons').stop();
             $(this).closest('.project-entry').find('.project-buttons').slideUp(250);

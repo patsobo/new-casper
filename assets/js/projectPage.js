@@ -1,8 +1,8 @@
-$(function() {
+$(document).ready(function() {
     var data = {projects:[
         {
             name:"Pooper Scooper",
-            description:"A fun pooper scooper object!",
+            description:"A fun pooper scooper object!  Lorem ipsum as well is a very cool guy!",
             blogLink:"/tag/website-changes",
             githubLink:"https://github.com/psobolew-co/Simple-Phone-Game",
         },

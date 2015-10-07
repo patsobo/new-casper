@@ -1,7 +1,7 @@
 {{#each projects}}
-<li class="project-entry">
+<article class="project-entry">
 	<header class="post-header project-header" >
-		<h1>{{name}}</h1>
+		<h2 class="post-title">{{name}}</h2>
 	</header>
 	<p>{{description}}</p>
 	<div class="project-buttons">
@@ -11,5 +11,5 @@
 			{{#if downloadLink}}<li><a href={{downloadLink}} >Download></a></li>{{/if}}
 		</ul>
 	</div>
-</li>
+</article>
 {{/each}}
