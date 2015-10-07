@@ -3,9 +3,12 @@ $(document).ready(function() {
     var text = html.innerText || html.textContent;
 
     var projectData = text.split('\n');
-    //console.log("projectData:" + projectData);
+
+    // Initialize data objects
     var data = {projects:[]};
     var dataPoint = {};
+
+    // Run through the data and store it properly into the data object
     for(var i = 0; i < projectData.length; i++) {
         if(projectData[i] == '') {
             data["projects"].push(dataPoint);
@@ -35,6 +38,9 @@ $(document).ready(function() {
                 break;
         }
     }
+
+    var uselessData = document.getElementById("projectData");
+    uselessData.parentNode.removeChild(uselessData);
 
     $(".projectList").load("/project-template.html", function() {
         var templateScript = $(".projectList").html();
