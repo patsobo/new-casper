@@ -1,18 +1,40 @@
 $(document).ready(function() {
-    var data = {projects:[
-        {
-            name:"Pooper Scooper",
-            description:"A fun pooper scooper object!  Lorem ipsum as well is a very cool guy!",
-            blogLink:"/tag/website-changes",
-            githubLink:"https://github.com/psobolew-co/Simple-Phone-Game",
-        },
-        {
-            name:"UFO ALIENS",
-            description:"A fun UFO ALIENS object!",
-            blogLink:"/tag/website-changes",
-            githubLink:"https://github.com/psobolew-co/Simple-Phone-Game",
-        },
-    ]};
+    var html = document.getElementById("projectData");
+    var text = html.innerText || html.textContent;
+
+    var projectData = text.split('\n');
+    //console.log("projectData:" + projectData);
+    var data = {projects:[]};
+    var dataPoint = {};
+    for(var i = 0; i < projectData.length; i++) {
+        if(projectData[i] == '') {
+            data["projects"].push(dataPoint);
+            console.log("dataPoint: " + dataPoint["github"]);
+            dataPoint = {};
+            console.log("data: " + i + data["projects"]);
+            continue;
+        }
+        splitLine = projectData[i].split(': ');
+        switch(splitLine[0]) {
+            case "name":
+                dataPoint["name"] = splitLine[1];
+                break;
+            case "description":
+                dataPoint["description"] = splitLine[1];
+                break;
+            case "blog":
+                dataPoint["blogLink"] = splitLine[1];
+                break;
+            case "github":
+                dataPoint["githubLink"] = splitLine[1];
+                break;
+            case "download":
+                dataPoint["downloadLink"] = splitLine[1];
+                break;                                                
+            default:
+                break;
+        }
+    }
 
     $(".projectList").load("/project-template.html", function() {
         var templateScript = $(".projectList").html();
