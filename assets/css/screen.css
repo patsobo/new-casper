@@ -1474,6 +1474,25 @@ body:not(.post-template) .post-title {
 }
 */
 
+.projectList {
+    padding-left:0px;
+
+}
+
+.project-entry {
+    margin-top:40px;
+    margin-bottom:40px;
+    border: #BBBBBB 1px solid;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 5px 5px 1px #BBBBBB;
+}
+
+.project-entry:hover {
+    background: #EEEEEE;
+    transition: all 0.6s ease;
+}
+
 .project-buttons {
     display: none;
 }
@@ -1507,7 +1526,8 @@ body:not(.post-template) .post-title {
     box-sizing: border-box;
     display: inline-block;
     padding: 0 15px;
-    border: #bfc8cd 1px solid;
+    /*border: #bfc8cd 1px solid;*/
+    border: #777 1px solid;
     opacity: 1;
     text-align: center;
     font-size: 14px;

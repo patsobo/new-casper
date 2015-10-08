@@ -26,7 +26,7 @@ $(document).ready(function() {
         });
 
         $(".project-entry").mouseleave(function() {
-            $(this).closest('.project-entry').find('.project-buttons').stop();
+           $(this).closest('.project-entry').find('.project-buttons').stop();
             $(this).closest('.project-entry').find('.project-buttons').slideUp(250);
         });
     });
