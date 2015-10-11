@@ -16,6 +16,8 @@ $(document).ready(function() {
 
     var sliding = false;
 
+    console.log("Reading application page...");
+
     // Fancy animation on the project entries
     // Not sure why I can't use on function, but using mouseenter and mouseleave
     // directly seem to work, so let's not ruin a good thing
