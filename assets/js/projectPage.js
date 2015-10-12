@@ -1,8 +1,7 @@
 $(document).ready(function() {
-    console.log("Reading projectpage...");
 
     var html = document.getElementById("projectData");
-    var text = html.innerText || html.textContent;
+    var text = html.textContent;    // Don't or with innerText - then you have no consistency among browsers.
 
     var projectData = text.split('\n');
 
@@ -10,26 +9,18 @@ $(document).ready(function() {
     var data = {projects:[]};
     var dataPoint = {};
 
-
-    console.log("Project Data incoming...");
-    console.log("projectData length: " + text);
-
     // Run through the data and store it properly into the data object
     // It's projectData.length - 1 because there seems to be an implicit newline at end.
-    for(var i = 0; i < projectData.length - 1; i++) {
-        projectData[i] = projectData[i].replace(/(\r\n|\n|\r)/gm,"");
-        //projectData[i] = projectData[i].replace(/\s+/g," ");
-        console.log("projectData " + i + ":" + projectData[i] + "!!");
-        if(projectData[i] == '') {
-            console.log("dataPoint");
+    for(var i = 0; i < projectData.length; i++) {
+        var splitLine = projectData[i].split(': ');
+        splitLine[0] = splitLine[0].replace(/\s+/g,''); 
+        splitLine[0] = splitLine[0].replace(/(\r\n|\n|\r)/gm,""); 
+        if(splitLine[0] == '' && !$.isEmptyObject(dataPoint)) {
             data["projects"].push(dataPoint);
             dataPoint = {};
+            continue;
         }
-        else {
-            var splitLine = projectData[i].split(': ');
-            splitLine[0] = splitLine[0].replace(/\s+/g,''); 
-            splitLine[0] = splitLine[0].replace(/(\r\n|\n|\r)/gm,"");                  
-            console.log("splitLine:" + splitLine[0] + "!!");
+        else {                 
             switch(splitLine[0]) {
                 case "name":
                     dataPoint["name"] = splitLine[1];
@@ -52,8 +43,6 @@ $(document).ready(function() {
         }
     }
 
-    console.log("loop complete...");
-
     var uselessData = document.getElementById("projectData");
     uselessData.parentNode.removeChild(uselessData);
 
@@ -62,7 +51,7 @@ $(document).ready(function() {
         var templateScript = $(".projectList").html();
         $(".projectList").html("");   // Clear the template after it's been loaded
         var template = Handlebars.compile(templateScript);
-        $(".projectList").append(template(data)); 
+        $(".projectList").append(template(data));
     });
 
 });

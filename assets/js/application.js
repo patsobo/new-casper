@@ -16,13 +16,12 @@ $(document).ready(function() {
 
     var sliding = false;
 
-    console.log("Reading application page...");
-
     // Fancy animation on the project entries
     // Not sure why I can't use on function, but using mouseenter and mouseleave
     // directly seem to work, so let's not ruin a good thing
     $(".projectList").mouseenter(function() {
         $(".project-entry").mouseenter(function() {
+            console.log("entering entry");
             $(this).closest('.project-entry').find('.project-buttons').stop();
             $(this).closest('.project-entry').find('.project-buttons').slideDown(250);
         });
@@ -31,6 +30,8 @@ $(document).ready(function() {
            $(this).closest('.project-entry').find('.project-buttons').stop();
             $(this).closest('.project-entry').find('.project-buttons').slideUp(250);
         });
+        console.log("entering projectlist");
+
     });
 
     $(".tag-projects").on('mouseenter', 'article', function() {
